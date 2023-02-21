@@ -1,0 +1,88 @@
+@use 'mixins';
+@import './variables';
+
+.aside {
+    z-index: 10;
+    
+    &__container {
+        border-left: 1px solid $color-menu2;
+        color: $color3;
+        position: fixed;
+        background-color: $color2;
+        font-size: 15px;
+        padding: 10px 15px;
+        width: 350px;
+        min-width: 200px;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        transform: translate(100%);
+    }
+    &__active { transform: translate(0); }
+    
+    &__content {
+        padding-top: 30px;
+        .fa-regular, .fa-solid {font-size: 15px; color: $color3;}
+        #Capa_1 { width: 16px; height: 16px; }
+        
+        .title {
+            @include mixins.flex(center, start, row);
+            color: $color3;
+            gap: 5px;
+        }
+        
+        &--header {
+            @include mixins.flex(center, space-between, row);
+            padding-top: 0;
+            .fa-xmark{cursor: pointer; font-size: 17px}
+        }
+        
+        input {
+            @include mixins.flex(center, start, column);
+            flex-wrap: wrap;
+            border-radius: 4px;
+            background-color: $color-menu2;
+            padding: 5px 3px;
+            box-shadow: none;
+            border: none;
+            color: $color3;
+            width: 90px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .config { font-size: 14px; padding-top: 13px; }
+        .config__option {
+            @include mixins.flex(center, space-between, row);
+            
+            flex-wrap: wrap;
+            label {               
+                color: $color-menu;
+                font-size: 13px;
+            }
+        }
+
+        .lbl-switch { 
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background-color: $color-menu2;
+            border-radius: 100px;
+            width: 50px;
+            height: 24px;
+        }
+        #switch:checked ~ .lbl-switch { background-color: $color1; }
+        #switch:checked ~ .lbl-switch:after { left: 28px;}
+        .lbl-switch:after{
+            position: absolute;
+            content: '';
+            background-color: $color2;
+            border-radius: 100px;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+        }
+        #switch { display: none; }
+    }
+}

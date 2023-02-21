@@ -1,14 +1,13 @@
-@use 'mixins';;
+@use 'mixins';
+@import 'variables';
+@import 'timer';
+@import 'aside';
+
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap');
 
 
-//********** VARIABLES ***********
-$color1: #ef3349;
-$color2: #f7f3e2;
-$color3: #533b3b;
-$color4: #0e0e0e;
-$color-menu: #b7b5ac;
-$color-menu2: #e2dfce;
+
 //********************************
 
 * {
@@ -22,6 +21,12 @@ $color-menu2: #e2dfce;
 }
 
 body::-webkit-scrollbar{ display: none;}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
 
 .fa-solid{ color: $color2; }
 
@@ -39,12 +44,7 @@ body::-webkit-scrollbar{ display: none;}
 
     .fa-solid {color: $color2;}
 
-    button {
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
-        font-size: 20px;
-    }
+    button { font-size: 20px;}
     
     .settings {@include mixins.flex(center, center, row);}
     .settings:hover { transform: rotate(60deg); }
@@ -73,136 +73,4 @@ body::-webkit-scrollbar{ display: none;}
     bottom: 5px;
     position: absolute;
     font-size: 20px;
-}
-
-.timer {
-
-    @include mixins.flex(center, center, column);
-    width: 100vw;
-    min-height: 100vh;
-    background-color: $color1; 
-    color: $color2;
-    transition: all .3s;
-
-    &__countdown::selection { opacity: 0;}
-    &__countdown {
-        margin: 0;
-        color: inherit;
-        font-size: 175px;
-        font-weight: 700;
-        cursor: default;
-        display: none;
-    }
-    
-    .timer__active { display: flex; }
-    .section__active { 
-        background-color: $color4;
-        color: rgba(247, 243, 226, .70);
-        .cls-1 {fill: rgba(247, 243, 226, .70); stroke: none; }
-        display: flex;
-    }
-    
-
-    .timer__buttons{
-
-        @include mixins.flex(center, start, row);
-        .fa-solid {font-size: 25px;}
-        #Capa_1 { width: 18px}
-        &__buttons::selection { opacity: 0;}
-
-        button {
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            width: 22px;
-            height: 35px;
-        }
-    }
-
-}
-
-.aside {
-    z-index: 10;
-    
-    &__container {
-        border-left: 1px solid $color-menu2;
-        color: $color3;
-        position: fixed;
-        background-color: $color2;
-        font-size: 15px;
-        padding: 5px 15px;
-        width: 25%;
-        min-width: 200px;
-        height: 100vh;
-        top: 0;
-        right: 0;
-        transform: translate(100%);
-    }
-    &__active { transform: translate(0); }
-    
-    &__content {
-        padding-top: 30px;
-        .fa-regular, .fa-solid {font-size: 15px; color: $color3;}
-        #Capa_1 { width: 16px; height: 16px; }
-        
-        .title {
-            @include mixins.flex(center, start, row);
-            color: $color3;
-            gap: 5px;
-        }
-        
-        &--header {
-            @include mixins.flex(center, space-between, row);
-            padding-top: 0;
-            .fa-xmark{cursor: pointer; font-size: 17px}
-        }
-        
-        input {
-            @include mixins.flex(center, start, column);
-            flex-wrap: wrap;
-            border-radius: 4px;
-            background-color: $color-menu2;
-            padding: 5px 3px;
-            box-shadow: none;
-            border: none;
-            color: $color3;
-            width: 90px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .config { font-size: 14px; padding-top: 13px; }
-        .config__option {
-            @include mixins.flex(center, space-between, row);
-            
-            flex-wrap: wrap;
-            label {               
-                color: $color-menu;
-                font-size: 13px;
-            }
-        }
-
-        .lbl-switch { 
-            cursor: pointer;
-            position: relative;
-            display: inline-block;
-            background-color: $color-menu2;
-            border-radius: 100px;
-            width: 50px;
-            height: 24px;
-        }
-        #switch:checked ~ .lbl-switch { background-color: $color1; }
-        #switch:checked ~ .lbl-switch:after { left: 28px;}
-        .lbl-switch:after{
-            position: absolute;
-            content: '';
-            background-color: $color2;
-            border-radius: 100px;
-            top: 2px;
-            left: 2px;
-            width: 20px;
-            height: 20px;
-        }
-        #switch { display: none; }
-    }
 }

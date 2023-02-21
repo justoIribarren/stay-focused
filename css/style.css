@@ -1,91 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;500;700&display=swap");
-* {
-  font-family: "Roboto Mono", monospace;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  transition: all 0.3s;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
-.fa-solid {
-  color: #f7f3e2;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  position: absolute;
-  width: 100vw;
-  padding: 10px 12px;
-}
-.header .logo {
-  width: 21px;
-}
-.header .logo .cls-1 {
-  fill: #f7f3e2;
-  stroke: none;
-}
-.header .logo:hover {
-  transform: rotate(15deg);
-}
-.header .fa-solid {
-  color: #f7f3e2;
-}
-.header button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-}
-.header .settings {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-.header .settings:hover {
-  transform: rotate(60deg);
-}
-.header .nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 25px;
-}
-.header .nav__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  font-size: 14px;
-  color: #f7f3e2;
-  padding: 2px 6px;
-  border-radius: 10px;
-}
-.header .nav__active {
-  color: #fff;
-  background-color: rgba(247, 243, 226, 0.3);
-}
-
-.scrolldown {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  bottom: 5px;
-  position: absolute;
-  font-size: 20px;
-}
-
-.timer {
+.main__timer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,52 +8,52 @@ body::-webkit-scrollbar {
   min-height: 100vh;
   background-color: #ef3349;
   color: #f7f3e2;
-  transition: all 0.3s;
 }
-.timer__countdown::selection {
-  opacity: 0;
+.main__timer .timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.timer__countdown {
+.main__timer .timer__countdown {
   margin: 0;
-  color: inherit;
   font-size: 175px;
   font-weight: 700;
   cursor: default;
+  color: inherit;
   display: none;
 }
-.timer .timer__active {
+.main__timer .timer__countdown::selection {
+  opacity: 0;
+}
+.main__timer .timer__buttons .fa-solid {
+  font-size: 25px;
+}
+.main__timer .timer__buttons #Capa_1 {
+  width: 19px;
+}
+.main__timer .timer__buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 22px;
+  height: 30px;
+}
+.main__timer .timer__buttons::selection {
+  opacity: 0;
+}
+.main__timer .timer__active {
   display: flex;
 }
-.timer .section__active {
+.main__timer .section__active {
   background-color: #0e0e0e;
   color: rgba(247, 243, 226, 0.7);
   display: flex;
 }
-.timer .section__active .cls-1 {
+.main__timer .section__active .cls-1 {
   fill: rgba(247, 243, 226, 0.7);
   stroke: none;
-}
-.timer .timer__buttons {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: row;
-}
-.timer .timer__buttons .fa-solid {
-  font-size: 25px;
-}
-.timer .timer__buttons #Capa_1 {
-  width: 18px;
-}
-.timer .timer__buttons__buttons::selection {
-  opacity: 0;
-}
-.timer .timer__buttons button {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  width: 22px;
-  height: 35px;
 }
 
 .aside {
@@ -151,8 +65,8 @@ body::-webkit-scrollbar {
   position: fixed;
   background-color: #f7f3e2;
   font-size: 15px;
-  padding: 5px 15px;
-  width: 25%;
+  padding: 10px 15px;
+  width: 350px;
   min-width: 200px;
   height: 100vh;
   top: 0;
@@ -250,6 +164,95 @@ body::-webkit-scrollbar {
 }
 .aside__content #switch {
   display: none;
+}
+
+* {
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: all 0.3s;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.fa-solid {
+  color: #f7f3e2;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: absolute;
+  width: 100vw;
+  padding: 10px 12px;
+}
+.header .logo {
+  width: 21px;
+}
+.header .logo .cls-1 {
+  fill: #f7f3e2;
+  stroke: none;
+}
+.header .logo:hover {
+  transform: rotate(15deg);
+}
+.header .fa-solid {
+  color: #f7f3e2;
+}
+.header button {
+  font-size: 20px;
+}
+.header .settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.header .settings:hover {
+  transform: rotate(60deg);
+}
+.header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 25px;
+}
+.header .nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 14px;
+  color: #f7f3e2;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+.header .nav__active {
+  color: #fff;
+  background-color: rgba(247, 243, 226, 0.3);
+}
+
+.scrolldown {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+  position: absolute;
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
