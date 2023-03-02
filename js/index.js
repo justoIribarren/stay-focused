@@ -1,20 +1,11 @@
+const settings = document.querySelector('.header__settings'),
+    close = document.querySelector('.close'),
+    aside = document.querySelector('.aside__container'),
+    sections = document.querySelector('.main__container');
 
-const settings = document.querySelector('.settings');
-const close = document.querySelector('.close');
-const aside = document.querySelector('.aside__container');
-const sections = document.querySelectorAll('.sections');
-document.qu
+settings.addEventListener('click', ()=> aside.classList.add('aside__active'));
+close.addEventListener('click', ()=> aside.classList.remove('aside__active'));
 
-settings.addEventListener('click', ()=>{
-    aside.classList.add('aside__active');
-});
-
-close.addEventListener('click', ()=>{
-    aside.classList.remove('aside__active');
-});
-
-sections.forEach((section) => {
-    section.addEventListener('click', ()=>{
+sections.addEventListener('click', ()=>{
         aside.classList.remove('aside__active');
-    }); 
-});
+}); 

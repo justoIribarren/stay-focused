@@ -3,24 +3,36 @@
 
 .main__timer {
 
-    @include mixins.flex(center, center, column);
+    .pomodoro__status{
+        @include mixins.flex(center, center, row);
+        
+        height: 7px;
+        width: 200px;
+    
+        .status{
+            margin: 0 5px;
+            background-color: rgba(247, 243, 226, .70);
+            width: 7px;
+            height: 7px;
+            border-radius: 10px;
+        }
+    }
 
+
+    @include mixins.flex(center, center, column);
     width: 100vw;
     min-height: 100vh;
-    background-color: $color1; 
     color: $color2;
-    
+
     .timer{
         @include mixins.flex(center, center, column);
         
         &__countdown {
             margin: 0;
-            font-size: 175px;
+            font-size: 11rem;
             font-weight: 700;
             cursor: default;
             color: inherit;
-            display: none;
-
             &::selection { opacity: 0;}
         }
         
@@ -34,15 +46,11 @@
             }
             &::selection { opacity: 0;}
         }
-        
-        &__active { display: flex; }
     }
 
-    .section__active { 
-        background-color: $color4;
-        color: rgba(247, 243, 226, .70);
-        .cls-1 {fill: rgba(247, 243, 226, .70); stroke: none; }
-        display: flex;
-    }
-
+}
+.main__active { 
+    background-color: $color4;
+    color: rgba(247, 243, 226, .70);
+    .cls-1 {fill: rgba(247, 243, 226, .70); stroke: none; }
 }

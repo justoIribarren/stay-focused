@@ -1,0 +1,49 @@
+@use 'mixins';
+@import './variables';
+
+.header {
+    *::selection {
+        background-color: transparent;
+        color: $color2;
+    }
+    @include mixins.flex(center, center, column);
+    position: absolute;
+    // width: 100vw;
+    &__container{
+        padding:10px 12px;
+        width: 100vw;
+        @include mixins.flex(center, space-between, row);
+    }
+
+    &__logo {
+        width: 21px;
+        .cls-1 {fill: $color2; stroke: none}
+        &:hover{ transform: rotate(15deg); }
+    }
+    .fa-solid {color: $color2;}
+    button { font-size: 20px;}
+    
+    &__settings {
+        @include mixins.flex(center, center, row);
+        &:hover { transform: rotate(60deg); }
+    }
+    
+    .nav {
+        @include mixins.flex(center, center, row);
+        gap: 25px;
+
+        &__link {
+            @include mixins.flex(center, center, row);
+            font-size: 14px;
+            font-weight: 500;
+            color: $color2;
+            padding:2px 6px;
+            border-radius: 10px;
+        }
+
+        .nav__active { 
+            color: #fff;
+            background-color: rgba(247, 243, 226, .3);
+        }
+    }
+}

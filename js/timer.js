@@ -1,39 +1,125 @@
-//************* SETTINGS *************
+//************* VARIABLES *************//
 
-let timer = document.querySelector('.timer__minutes'),
-    breaks = document.querySelector('.break__minutes'),
-    pause = document.querySelector('.longpause__minutes'),
-    longPauseIntervale = document.querySelector('.interval'),
-    pomodoroSessions = document.querySelector('.sessions'),
-    autoStart = document.querySelector('.autostart'),
-    minutes = timer.value,
-    active = document.querySelector('.timer__active');
+//------------ settings ------------//
 
+let $inputs = document.querySelectorAll('.input'),
+    $active = document.querySelector('.nav__active'),
+    pomo = 1,
+    session = 1,
+    [timer, breaks, pause, pI, pS, autoStart, volumeInput] = $inputs;
+
+    let inputs = [timer, breaks, pause, pI, pS];
+
+    let pauseInterval = pI.value,
+    pomoSes = pS.value,
+    vol = volumeInput.value;
     
-//************************************
+    //------------ timer ------------//
+    
+    const $mainTimer = document.querySelector('.main__timer'),
+    $countdown = document.querySelector(".timer__countdown"),
+    $startBtn = document.querySelector('.start'),
+    $pauseBtn = document.querySelector('.pause'),
+    $pomoStat = document.querySelector('.pomodoro__status'),
+    $scrolldown = document.querySelector('.scrolldown'),
+    $volume = document.querySelector('.range__value'),
+    $title = document.getElementById('title'),
+    $navLink = document.querySelectorAll('.nav__link');
+    
+let idInterval = null, timeDifference = 0, futureDate = null, minutes = timer.value;
+//***********************************/
 
+
+//*********** FUNCTIONS *************//
+
+//----------------------------------//
 
 const showElement = element => element.style.display = "";
 const hideElement = element => element.style.display = "none";
+const showStat = () => {
+    let $stat = document.createElement('div');
+    $pomoStat.appendChild($stat);
+    $stat.classList.add('status');
+};
+const addZero = min => {
+    if (min < 10) return "0" + `${min}`;
+    else return min
+};
+const loadSound = (source, vol)=> {
+    const sound = document.createElement("audio");
+    sound.src = source;
+    sound.setAttribute("preload", "auto");
+    sound.setAttribute("controls", "none");
+    sound.style.display = "none";
+    document.body.appendChild(sound);
+    sound.volume = vol;
+    return sound;
+};
 
-//************** TIMER ***************
+loadSound('./audio/beep.mp3', vol);
 
-const startBtn = document.querySelector('.start'),
-    pauseBtn = document.querySelector('.pause'),
+//-------------- TIMER 1--------------//
 
-    sectionTimer = document.querySelector('.section__timer');
-    scrolldown = document.querySelector('.scrolldown'),
-    title = document.querySelector('.title');
+const stopTimer = () => {
     
-let idInterval = null, timeDifference = 0, futureDate = null;
-hideElement(pauseBtn);
+    hideElement($pauseBtn);
+    showElement($startBtn);
+    showElement($scrolldown);
+    $title.textContent = `Stay Focused!`;
+    $mainTimer.classList.remove('main__active');
+    timeDifference = futureDate - new Date().getTime();
+    clearInterval(idInterval);
+}
+
+const resetTimer = min => {
+    if(min == "") min = 0;
+    $countdown.textContent = `${addZero(min)}:00`;
+    if(min < 1){
+        let sec = Math.floor(min * 60);
+        $countdown.textContent = `00:${addZero(sec)}`;
+    }
+    
+    futureDate = null;
+    timeDifference = 0;
+}
+
+//-------------- FOCUS --------------//
+
+const changeFocus = el => {
+    
+    minutes = 0;
+    $navLink.forEach(link => link.classList.remove("nav__active"));
+    el.classList.add("nav__active");
+    
+    $active = document.querySelector('.nav__active');
+
+    if ($active.id == "pomodoro"){
+        minutes = timer.value;
+        if(minutes > 120) minutes = 120;
+    }
+    else if ($active.id == "break"){ 
+        minutes = breaks.value;
+        if(minutes > 30) minutes = 30;
+
+    }
+    else if ($active.id == "pause"){
+        minutes = pause.value;
+        if(minutes > 60) minutes = 60
+    }
+    
+    resetTimer(minutes);    
+    return minutes;
+}
+
+//-----------------------------------//
+
+//-------------- TIMER 2 --------------//
 
 const startTimer = minutes => {
-    showElement(pauseBtn);
-    hideElement(startBtn);
-    hideElement(scrolldown);
-    sectionTimer.classList.add('section__active');
-    // hideElement($btnDetener);
+    showElement($pauseBtn);
+    hideElement($startBtn);
+    hideElement($scrolldown);
+    $mainTimer.classList.add('main__active');
     if (futureDate) {
         futureDate = new Date(new Date().getTime() + timeDifference);
         timeDifference = 0;
@@ -41,81 +127,86 @@ const startTimer = minutes => {
         const milliseconds = Math.floor((minutes * 60) * 1000);
         futureDate = new Date(new Date().getTime() + milliseconds).getTime();
     }
+
     clearInterval(idInterval);
+
     idInterval = setInterval(() => {
         const timeLeft = (futureDate - new Date().getTime()) + 10;
+
         if (timeLeft <= 0) {
             clearInterval(idInterval);
-            // sonido.play();
-            title.textContent = `Stay Focused!`;
-            sectionTimer.classList.remove('section__active');
-            hideElement(pauseBtn);
-            showElement(startBtn);
-        } else {
+            loadSound('./audio/beep.mp3', vol).play();
+            if ((session%2) == 0 && pomo < (pomoSes)*2){ 
+                showStat();
+                minutes = changeFocus($navLink[0]);
+            }
+            else if((session%2) == 1 && session != ((pauseInterval)*2)-1) minutes = changeFocus($navLink[1]);
+            else if((session%2) == 1 && session == ((pauseInterval)*2)-1){
+                minutes = changeFocus($navLink[2]);
+                pauseInterval = parseInt(pI.value) + parseInt(pauseInterval);
+            }
+            session += 1;
+            if(autoStart.checked && session <= (pomoSes)*2){
+                resetTimer(minutes);
+                startTimer(minutes);
+            } else if(!(autoStart.checked) || session >= (pomoSes)*2){
+                if(session >= (pomoSes)*2) {
+                    let stat = document.querySelectorAll('.status');
+                    stat.forEach(s => s.remove());
+                    pauseInterval = pI.value;
+                }
+                $title.textContent = `Stay Focused!`;
+                $mainTimer.classList.remove('main__active');
+                hideElement($pauseBtn);
+                showElement($startBtn);
+                showStat();
+                pomo = 1;
+                session = 1;
+            }
 
-            let min = ("0" + Math.floor((timeLeft % (1000 * 60 * 60))/ (1000 * 60))).slice(-2),
-                sec = ("0" + Math.floor((timeLeft % (1000 * 60))/ 1000)).slice(-2);
+        } else {
+            let min = Math.floor((timeLeft % (1000 * 60 * 60 * 60)) / (1000 * 60)),
+                sec = Math.floor((timeLeft % (1000 * 60)) / 1000);
                 
-            title.textContent = `${min}:${sec} - Stay Focused!`;
-            active.textContent = `${min}:${sec}`;
+            if ($active.id == "pomodoro") $title.textContent = `${addZero(min)}:${addZero(sec)}` + ' - Stay Focused!';
+            else if ($active.id == "break") $title.innerHTML = `${addZero(min)}:${addZero(sec)}` + ' - Break Time!';
+            else if ($active.id == "pause") $title.innerHTML = `${addZero(min)}:${addZero(sec)}` + ' - Pause Time!';
+            $countdown.textContent = `${addZero(min)}:${addZero(sec)}`;
         }
     }, 1000);
 };
 
-const stopTimer = () => {
-    hideElement(pauseBtn);
-    showElement(startBtn);
-    showElement(scrolldown);
-    // showElement($btnDetener);
-    title.textContent = `Stay Focused!`;
-    sectionTimer.classList.remove('section__active');
-    timeDifference = futureDate - new Date().getTime();
-    clearInterval(idInterval);
-}
+//*************************************/
 
-const resetTimer = min => {
-    active.textContent = `${("0" + min).slice(-2)}:00`;
-    futureDate = null;
-    timeDifference = 0;
-    clearInterval(idInterval);
-}
+//************** CALLS ****************//
 
-//************************************
+hideElement($pauseBtn);
+showStat();
 
+$startBtn.addEventListener("click", () => startTimer(minutes));
 
-//************************************
+$pauseBtn.addEventListener("click", () => stopTimer());
 
-const navLink = document.querySelectorAll(".nav__link"),
-    countdown = document.querySelectorAll(".timer__countdown");
-
-navLink.forEach(link => {
-
-    link.addEventListener('click',()=>{
-
+$navLink.forEach(link => {
+    link.addEventListener('click', () => {
         stopTimer();
-        navLink.forEach(link => link.classList.remove("nav__active"));
-        link.classList.add("nav__active");
-
-        countdown.forEach( time => {
-
-            if(time.id === link.id) time.classList.add("timer__active");
-            else time.classList.remove("timer__active");
-
-        });
-
-        active = null;
-        active = document.querySelector('.timer__active');
-
-        if (timer.id == active.id) minutes = timer.value;
-        else if (breaks.id == active.id) minutes = breaks.value;
-        else if (pause.id == active.id) minutes = pause.value;
-
-        resetTimer(minutes);
+        changeFocus(link)
     })
 });
 
-//************************************
+inputs.forEach(inp => {
+    inp.addEventListener('input', () => {
+        stopTimer();
+        changeFocus($navLink[0])
+        pauseInterval = pI.value;
+        pomoSes = pS.value;
+    
+        if(pauseInterval > 8 ) pauseInterval = 8;
+        if(pomoSes > 16) pomoSes = 16;
+    })
+});
 
-startBtn.addEventListener("click", () => startTimer(minutes));
-
-pauseBtn.addEventListener("click", () => stopTimer());
+volumeInput.addEventListener('input', ()=>{
+    vol = volumeInput.value; 
+    $volume.innerHTML = `${Math.floor(vol*100)}`
+})
