@@ -1,5 +1,5 @@
-@use 'mixins';
-@import './variables';
+@use '../abstract/mixins';
+@import '../abstract/variables';
 
 .main__info {
     background-color: $color2; 
@@ -10,7 +10,7 @@
     position: absolute;
     top: .625rem;
     left: .75rem;
-    width: 1.8em;
+    width: 1.4rem;
     .cls-1{fill:$color1; }
     &:hover{ transform: rotate(15deg); }
 }
@@ -47,6 +47,9 @@
 @media only screen and (max-width: 768px) {
     .section__info {
         padding: 3.875em 6em 1em;
+    }
+    .info__logo{
+        width: 1.6em;
     }
 }
 

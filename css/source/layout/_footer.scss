@@ -1,5 +1,5 @@
-@use 'mixins';
-@import './variables';
+@use '../abstract/mixins';
+@import '../abstract/variables';
 
 .footer{
     @include mixins.flex(center, center, column);

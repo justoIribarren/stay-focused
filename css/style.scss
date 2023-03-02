@@ -1,10 +1,10 @@
-@use 'mixins';
-@import 'variables';
-@import 'header';
-@import 'aside';
-@import 'timer';
-@import 'information';
-@import 'footer';
+@use './source/abstract/mixins';
+@import './source/abstract/variables';
+@import './source/layout/header';
+@import './source/layout/aside';
+@import './source/layout/timer';
+@import './source/layout/information';
+@import './source/layout/footer';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap');
 

@@ -1,8 +1,12 @@
-@use 'mixins';
-@import './variables';
+@use '../abstract/mixins';
+@import '../abstract/variables';
 
 .main__timer {
-
+    
+    @include mixins.flex(center, center, column);
+    // width: 100vw;
+    min-height: 100vh;
+    color: $color2;
     .pomodoro__status{
         @include mixins.flex(center, center, row);
         
@@ -17,19 +21,13 @@
             border-radius: 10px;
         }
     }
-
-
-    @include mixins.flex(center, center, column);
-    width: 100vw;
-    min-height: 100vh;
-    color: $color2;
-
+    
     .timer{
         @include mixins.flex(center, center, column);
-        
+        width: 100%;
         &__countdown {
             margin: 0;
-            font-size: 11rem;
+            font-size: 11em;
             font-weight: 700;
             cursor: default;
             color: inherit;
@@ -53,4 +51,24 @@
     background-color: $color4;
     color: rgba(247, 243, 226, .70);
     .cls-1 {fill: rgba(247, 243, 226, .70); stroke: none; }
+}
+
+@media only screen and (max-width: 560px) {
+    .main__timer{
+        .timer{
+            &__countdown {
+                font-size: 7em;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main__timer{
+        .timer{
+            &__countdown {
+                font-size: 6em;
+            }
+        }
+    }
 }

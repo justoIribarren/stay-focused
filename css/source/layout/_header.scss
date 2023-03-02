@@ -1,5 +1,5 @@
-@use 'mixins';
-@import './variables';
+@use '../abstract/mixins';
+@import '../abstract/variables';
 
 .header {
     *::selection {
@@ -8,20 +8,19 @@
     }
     @include mixins.flex(center, center, column);
     position: absolute;
-    // width: 100vw;
     &__container{
-        padding:10px 12px;
+        padding:.625rem .75rem;
         width: 100vw;
         @include mixins.flex(center, space-between, row);
     }
 
     &__logo {
-        width: 21px;
+        width: 1.4rem;
         .cls-1 {fill: $color2; stroke: none}
         &:hover{ transform: rotate(15deg); }
     }
     .fa-solid {color: $color2;}
-    button { font-size: 20px;}
+    button { font-size: 1.25rem;}
     
     &__settings {
         @include mixins.flex(center, center, row);
@@ -44,6 +43,41 @@
         .nav__active { 
             color: #fff;
             background-color: rgba(247, 243, 226, .3);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        &__logo{
+            width: 1.6rem;
+        }
+        button { font-size: 1.4rem;}
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .header {
+
+        &__logo{ width: 1.3rem; }
+        button { font-size: 1.2rem;}
+        .nav {
+            gap: 5px;
+            &__link {
+                font-size: .875rem;
+                padding:2px 6px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .header {
+        .nav {
+            &__link {
+                font-size: .6875rem;
+                padding:2px 6px;
+            }
         }
     }
 }
