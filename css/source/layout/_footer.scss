@@ -1,0 +1,36 @@
+@use '../abstract/mixins';
+@import '../abstract/variables';
+
+.footer{
+    @include mixins.flex(center, center, column);
+    gap: 5px;
+    padding: 1.875rem 1.25rem 1.25rem;
+    background-color: $color2;
+    border-top: 1px solid $color-menu2;
+    color: $color3;
+
+    
+    &__contact{
+        @include mixins.flex(center, center, row);
+        gap: 15px;
+        font-size: .875rem;
+        &--content{
+            font-size: 22px;
+            span {@include mixins.flex(center, center, row);}
+        }
+        
+    }
+    
+    #Capa_1 {width: 30px; fill: $color3; }
+    a { color: $color3; font-weight: 700;}
+    p {
+        font-size: .6rem;
+        text-align: center;
+        span {font-size: .9rem;}
+    }
+    
+    *::selection{
+        background-color: $color1;
+        color: $color2;
+    }
+}

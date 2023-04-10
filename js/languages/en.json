@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "break": "Short Break",
+        "pause": "Long Pause"
+    },
+    "information": {
+        "section-title": "Manage your productivity time with the Pomodoro Technique",
+
+        "info-title-1": "<a href='https://es.wikipedia.org/wiki/T%C3%A9cnica_Pomodoro' target='_blank' rel='noopener noreferrer'> What is the Pomodoro Technique? </a>",
+        "info-text-1": "The <a href=https://francescocirillo.com/products/the-pomodoro-technique target=_blank rel=noopener noreferrer >Pomodoro Technique</a> is a popular time management system that involves working/studying in 25-minute intervals with short 5-minute breaks in between to maximize focus. This technique was developed by Francesco Cirillo in the late 1980s while he was a university student. He used a tomato-shaped timer from his kitchen to time himself. After repeated trial and error, tweaking the amount of time, he eventually put together the Pomodoro Technique.",
+        
+        "info-title-2": "How to use the Pomodoro Timer?",
+        "li-1-1": " 1. <span> List the tasks </span> you want to accomplish in order of priority. ",
+        "li-1-2": " 2. <span> Set the timer </span> for 25 minutes. "   ,
+        "li-1-3": " 3. <span> Pick a task </span> to work on. ",  
+        "li-1-4": " 4. <span> Start the timer </span> and concentrate on the task until the time ends  ",
+        "li-1-5": " 5. <span> Take a break </span> for 5 minutes  ",
+        "li-1-6": " 6. <span> Take a longer break </span> (15-30 minutes) after four pomodoros. ",
+        "li-1-7": "7. <span> Repeat the cycle </span> until you complete all the tasks. ",
+
+        "info-title-3": "Benefits of the Technique",
+        "li-2-1": "- <span> Improves focus: </span> This technique lets you break the habit of multitasking. It trains you to be able to focus on one task at a time with reasonable time intervals.",
+        "li-2-2": "- <span> Facilitates project planning: </span> After getting used to doing pomodoros, you’ll be able to plan out tasks and projects with more precision.",
+        "li-2-3": "- <span> Decreases mental fatigue: </span> A study found that doing prolonged tasks leads to a decrease in performance, while short breaks between tasks can help you keep the focus.",
+        "li-2-4": "- <span> Sustains motivation: </span> Breaking down tasks and tackling them in short bursts, you’ll feel a sense of satisfaction seeing how much you can accomplish in 25 minutes."
+    },
+    "aside": {
+        "aside-title": "Settings",
+
+        "config-title-1": "TIMER",
+        "time": "Time",
+        "label-2": "Short Break",
+        "label-3": "Long Pause",
+        "interval": "Long Pause Interval",
+        "sessions": "Pomodoro Sessions",
+        "auto-start": "Automatically Start",
+
+        "config-title-2": "SOUND",
+        "range": "Volume",
+
+        "config-title-3": "LANGUAGE"
+    },
+    "footer": {
+        "span-footer": "Made by",
+        "copyright": "Stay Focused! is not related to the Pomodoro Technique™/Pomodoro™’s trademark holder Cirillo Company and respects its trademarks.<br> Pomodoro Technique® and Pomodoro® are registered trademarks of Francesco Cirillo."
+    }
+}

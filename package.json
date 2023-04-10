@@ -1,0 +1,11 @@
+{
+  "name": "stay-focused",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./css/style.scss ./css/dist/style.css"
+  },
+  "author": "Justo Iribarren",
+  "license": "ISC"
+}

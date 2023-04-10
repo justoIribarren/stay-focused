@@ -1,0 +1,83 @@
+@use '../abstract/mixins';
+@import '../abstract/variables';
+
+.header {
+    *::selection {
+        background-color: transparent;
+        color: $color2;
+    }
+    @include mixins.flex(center, center, column);
+    position: absolute;
+    &__container{
+        padding:.625rem .75rem;
+        width: 100vw;
+        @include mixins.flex(center, space-between, row);
+    }
+
+    &__logo {
+        width: 1.4rem;
+        .cls-1 {fill: $color2; stroke: none}
+        &:hover{ transform: rotate(15deg); }
+    }
+    .fa-solid {color: $color2;}
+    button { font-size: 1.25rem;}
+    
+    &__settings {
+        @include mixins.flex(center, center, row);
+        &:hover { transform: rotate(60deg); }
+    }
+    
+    .nav {
+        @include mixins.flex(center, center, row);
+        gap: 25px;
+
+        &__link {
+            @include mixins.flex(center, center, row);
+            font-size: 14px;
+            font-weight: 500;
+            color: $color2;
+            padding:2px 6px;
+            border-radius: 10px;
+        }
+
+        .nav__active { 
+            color: #fff;
+            background-color: rgba(247, 243, 226, .3);
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header{
+        &__logo{
+            width: 1.6rem;
+        }
+        button { font-size: 1.4rem;}
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .header {
+
+        &__logo{ width: 1.3rem; }
+        button { font-size: 1.2rem;}
+        .nav {
+            gap: 5px;
+            &__link {
+                font-size: .875rem;
+                padding:2px 6px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .header {
+        .nav {
+            &__link {
+                font-size: .6875rem;
+                padding:2px 6px;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "nav": {
+        "break": "Pausa Corta",
+        "pause": "Pausa Larga"
+    },
+    "information": {
+        "section-title": "Gestiona tu tiempo de productividad con la Técnica Pomodoro",
+
+        "info-title-1": "<a href='https://es.wikipedia.org/wiki/T%C3%A9cnica_Pomodoro' target='_blank' rel='noopener noreferrer'> Qué es la Técnica Pomodoro? </a>",
+        "info-text-1": "La <a href=https://francescocirillo.com/products/the-pomodoro-technique target=_blank rel=noopener noreferrer >Técnica Pomodoro</a> es un popular sistema de gestión del tiempo que consiste en trabajar/estudiar en intervalos de 25 minutos con breves descansos de 5 minutos entre ellos para maximizar la concentración. Esta técnica fue desarrollada por Francesco Cirillo a fines de la década de 1980 cuando era estudiante universitario. Usó un cronómetro con forma de tomate de su cocina para tomarse el tiempo. Después de repetidas pruebas y errores, ajustando la cantidad de tiempo, finalmente creó la Técnica Pomodoro.",
+        
+        "info-title-2": "¿Cómo usar el temporizador Pomodoro?",
+        "li-1-1": "1. <span> Haz una lista de las tareas </span> que debas realizar en orden de prioridad.",
+        "li-1-2": "2. <span> Configure el temporizador </span> en 25 minutos",
+        "li-1-3": " 3. <span> Elija una tarea </span> para trabajar. ",  
+        "li-1-4": " 4. <span> Inicia el cronómetro </span> y concéntrate en la tarea hasta que termine el tiempo ",
+        "li-1-5": " 5. <span> Toma un descanso </span> durante 5 minutos.  ",
+        "li-1-6": " 6. <span> Toma un descanso más largo </span> (15-30 minutos) después de cuatro pomodoros. ",
+        "li-1-7": " 7. <span> Repite el ciclo </span> hasta completar todas las tareas. ",
+
+        "info-title-3": "Beneficios de la Técnica",
+        "li-2-1": "- <span> Mejora de la concentracion: </span> Esta técnica e permite romper el hábito de realizar varias tareas a la vez. Te entrena para poder concentrarte en una tarea a la vez con intervalos de tiempo razonables.",
+        "li-2-2": "- <span> Facilita la planificación de proyectos: </span> Después de acostumbrarse a las sesiones pomodoros, podrás planificar tareas y proyectos con más precisión.",
+        "li-2-3": "- <span> Disminuye la fatiga mental: </span> Un estudio encontró que hacer tareas prolongadas conduce a una disminución en el rendimiento, mientras que los descansos breves entre tareas pueden ayudarlo a mantener el enfoque.",
+        "li-2-4": "- <span> Mantiene la motivación: </span> Al dividir las tareas y abordarlas en períodos breves, sentirás una gran satisfacción al ver cuánto puedes lograr en 25 minutos."
+    },
+    "aside": {
+        "aside-title": "Configuraciones",
+
+        "config-title-1": "TEMPORIZADOR",
+        "time": "Tiempo",
+        "label-2": "Pausa Corta",
+        "label-3": "Pausa Larga",
+        "interval": "Intervalo de pausa larga",
+        "sessions": "Sesiones Pomodoro",
+        "auto-start": "Iniciar Automaticamente",
+
+        "config-title-2": "SONIDO",
+        "range": "Volumen",
+
+        "config-title-3": "IDIOMA"
+    },
+    "footer": {
+        "span-footer": "Hecho por",
+        "copyright": "Stay Focused! no está relacionado con el titular de la marca comercial Pomodoro Technique™/Pomodoro™ Cirillo Company y respeta sus marcas comerciales.<br> Pomodoro Technique® y Pomodoro® son marcas comerciales registradas de Francesco Cirillo."
+    }
+}

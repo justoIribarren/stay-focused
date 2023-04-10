@@ -1,0 +1,165 @@
+@use '../abstract/mixins';
+@import '../abstract/variables';
+
+.aside {
+    *::selection {
+        background-color: $color1;
+        color: $color2;
+    }
+    z-index: 10;
+    
+    &__container {
+        border-left: 1px solid $color-menu2;
+        color: $color3;
+        position: fixed;
+        background-color: $color2;
+        font-size: 1em;
+        padding: .625em .9375em;
+        width: 350px;
+        min-width: 200px;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+    }
+    &__active { transform: translateX(0); }
+    
+    &__content {
+        padding: 1em 0;
+        border-bottom: 1px solid $color-menu2;
+        font-weight: 500;
+        
+        .fa-regular, .fa-solid {font-size: .9375em; color: $color3;}
+        #Capa_1 { width: 17px; height: 17px; fill: $color3;}
+        
+        .title {
+            @include mixins.flex(center, start, row);
+            color: $color3;
+            gap: 5px;
+        }
+        
+        &--header {
+            @include mixins.flex(center, space-between, row);
+            padding-top: 0;
+            .fa-xmark{cursor: pointer; font-size: 1.1em}
+        }
+        
+        input, select{
+            @include mixins.flex(center, start, column);
+            flex-wrap: wrap;
+            border-radius: 4px;
+            background-color: $color-menu2;
+            padding: 5px 3px;
+            box-shadow: none;
+            border: none;
+            color: $color3;
+            width: 5.625rem;
+            box-sizing: border-box;
+            outline: none;
+            font-size: .8125em;
+        }
+        
+        .config { font-size: .875em; padding-top: .8125em; }
+        .config__option {
+            @include mixins.flex(center, space-between, row);
+            
+            flex-wrap: wrap;
+            label {               
+                color: $color-menu;
+                font-size: .8125em;
+            }
+        }
+        
+        &--language { @include mixins.flex(center, space-between, row); }
+
+        &--sound{position: relative;}
+
+
+        .lbl-switch { 
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            background-color: $color-menu2;
+            border-radius: 100px;
+            width: 50px;
+            height: 24px;
+        }
+        #switch:checked ~ .lbl-switch { background-color: $color1; }
+        #switch:checked ~ .lbl-switch:after { left: 28px;}
+        .lbl-switch:after{
+            position: absolute;
+            content: '';
+            background-color: $color2;
+            border-radius: 100px;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+        }
+        #switch { display: none; }
+
+        p {font-weight: 500;}
+    }
+}
+
+.slider{
+    @include mixins.flex(center, space-between, row);
+    
+    gap: 5px;
+
+    .range{
+        -webkit-appearance: none;
+        padding: 0;
+        width: 133px;
+        background-color: $color2;
+    }
+
+    .range::-webkit-slider-runnable-track {
+        height: 15px;
+        background: $color1;
+        border: none;
+        border-radius: 15px;
+    }
+
+    .range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        border: 2px solid $color1;
+        height: 15px;
+        width: 15px;
+        border-radius: 15px;
+        background: $color2;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .aside{
+        &__container {
+            font-size: 1.4em;
+            padding: .625em .9375em;
+            width: 75vw;
+        }
+
+        input, select{ width: 8em; }
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .aside{
+        &__container {
+            font-size: 1.2em;
+            padding: .625em .9375em;
+            width: 100vw;
+            transform: translateY(100%);
+        }
+
+        &__active {transform: translateY(0);}
+
+        input, select{ width: 7em; }
+    }
+}
+
+@media only screen and (max-width: 345px) {
+    .aside{
+        input, select{ width: 6.4em;}
+    }
+}

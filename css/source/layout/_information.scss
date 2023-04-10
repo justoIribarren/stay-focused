@@ -1,0 +1,60 @@
+@use '../abstract/mixins';
+@import '../abstract/variables';
+
+.main__info {
+    background-color: $color2; 
+    position: relative;
+}
+
+.info__logo{
+    position: absolute;
+    top: .625rem;
+    left: .75rem;
+    width: 1.4rem;
+    .cls-1{fill:$color1; }
+    &:hover{ transform: rotate(15deg); }
+}
+
+.section__info {
+    width: 100vw;
+    padding: 3.875em 13.75em 1em;
+
+    h2 {padding-bottom: .6rem; }
+    *::selection {
+        background-color: $color1;
+        color: $color2;
+    }
+}
+
+.info {
+    @include mixins.flex(start, center, column);
+    padding: 1.8em 0;
+    
+    &__divider {
+        background-color: $color1;
+        height: .25rem;
+        width: 2.1875rem;
+        border-radius: .25rem;
+        margin: .5938rem 0;
+    }
+    a {color: $color3; font-weight: 700;}
+    li {margin-left: .7rem;}
+    li, p {line-height: 1.5rem;}
+    p {display: inline;}
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .section__info {
+        padding: 3.875em 6em 1em;
+    }
+    .info__logo{
+        width: 1.6em;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .section__info {
+        padding: 3.875em 2em 1em;
+    }
+}

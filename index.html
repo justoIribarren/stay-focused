@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Stay Focused!</title>
+    <link rel="shortcut icon" href="images/brain.svg">
+    <link rel="stylesheet" href="./css/dist/style.css">
+    <script src="https://kit.fontawesome.com/8c02d787f0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="page__container">
+
+        <header class="header">
+
+            <div class="header__container">
+                <div class="header__logo icon">
+                    <a href="#section__info">
+                        <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#cbb4b7;}</style></defs><path class="cls-1" d="M184,0a56,56,0,0,1,56,56V456a56,56,0,0,1-111.7,5.9A62.8,62.8,0,0,1,112,464a64,64,0,0,1-60.4-85.2,80,80,0,0,1-5.8-147.1A63.34,63.34,0,0,1,32,192a64.13,64.13,0,0,1,50.4-62.6A62.5,62.5,0,0,1,80,112a64.16,64.16,0,0,1,48.3-62.1A56,56,0,0,1,184,0ZM328,0a56.1,56.1,0,0,1,55.7,49.9A64,64,0,0,1,432,112a62.5,62.5,0,0,1-2.4,17.4A64,64,0,0,1,480,192a63.34,63.34,0,0,1-13.8,39.7,80,80,0,0,1-5.8,147.1A64,64,0,0,1,400,464a62.8,62.8,0,0,1-16.3-2.1A56,56,0,0,1,272,456V56A56,56,0,0,1,328,0Z"/></svg>
+                        </a>
+                </div>
+
+                <nav class="nav">
+                    <button class="nav__link nav__active" id="pomodoro">Pomodoro</button>
+                    <button class="nav__link" id="break"><span data-section="nav" data-value="break">Short Break</span></button>
+                    <button class="nav__link " id="pause"><span data-section="nav" data-value="pause">Long Pause</span></button>
+                </nav>
+
+                <button class="header__settings icon"><i class="fa-solid fa-gear"></i></button>
+            
+            </div>
+
+        </header>
+
+        <main class="main__container">
+            <div class="main main__timer" id="main__timer">
+                <section class="section__timer timer">
+                    <div class="pomodoro__status">
+                    </div>
+                    <p class="timer__countdown">25:00</p>
+                    <div class="timer__buttons">
+                        <button class="start">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <button class="pause">
+                            <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.68 13.63"><path class="cls-1" d="M2.11.19A1.94,1.94,0,0,0,.16,2.13v9.74a1.95,1.95,0,0,0,3.89,0V2.13A1.94,1.94,0,0,0,2.11.19Zm7.78,0A1.94,1.94,0,0,0,8,2.13v9.74a1.95,1.95,0,0,0,3.89,0V2.13A1.94,1.94,0,0,0,9.89.19Z" transform="translate(-0.16 -0.19)"/></svg>
+                        </button>
+                    </div>
+                </section>
+                <span class="scrolldown"><i class="fa-solid fa-angle-down"></i></span>
+            </div>
+            <div class="main main__info">
+                <div class="info__logo icon">
+                    <a href="#main__timer"><svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:#d14454;}</style></defs><path class="cls-1" d="M184,0a56,56,0,0,1,56,56V456a56,56,0,0,1-111.7,5.9A62.8,62.8,0,0,1,112,464a64,64,0,0,1-60.4-85.2,80,80,0,0,1-5.8-147.1A63.34,63.34,0,0,1,32,192a64.13,64.13,0,0,1,50.4-62.6A62.5,62.5,0,0,1,80,112a64.16,64.16,0,0,1,48.3-62.1A56,56,0,0,1,184,0ZM328,0a56.1,56.1,0,0,1,55.7,49.9A64,64,0,0,1,432,112a62.5,62.5,0,0,1-2.4,17.4A64,64,0,0,1,480,192a63.34,63.34,0,0,1-13.8,39.7,80,80,0,0,1-5.8,147.1A64,64,0,0,1,400,464a62.8,62.8,0,0,1-16.3-2.1A56,56,0,0,1,272,456V56A56,56,0,0,1,328,0Z"/></svg></a>
+                </div>
+                <section class="section section__info" id="section__info">
+                    <h1 data-section="information" data-value="section-title"> Manage your productivity time with the Pomodoro Technique </h1>
+                    <div class="info info__pomo">
+                        <h3 data-section="information" data-value="info-title-1"> <a href="https://es.wikipedia.org/wiki/T%C3%A9cnica_Pomodoro" target="_blank" rel="noopener noreferrer"> What is the Pomodoro Technique? </a> </h3>
+                        <div class="info__divider"></div>
+                        <p data-section="information" data-value="info-text-1"> The <a href="https://francescocirillo.com/products/the-pomodoro-technique" target="_blank" rel="noopener noreferrer" >Pomodoro Technique</a> is a popular time management system that involves working/studying in 25-minute intervals with short 5-minute breaks in between to maximize focus.
+                        This technique was developed by Francesco Cirillo in the late 1980s while he was a university student.
+                        He used a tomato-shaped timer from his kitchen to time himself. After repeated trial and error, tweaking the amount of time, he eventually put together the Pomodoro Technique. </p>
+                    </div>
+                    <div class="info info__guide">
+                        <h3 data-section="information" data-value="info-title-2"> How to use the Pomodoro Timer? </h3>
+                        <div class="info__divider"></div>
+                        <ol>
+                            <li data-section="information" data-value="li-1-1"> 1. <span> List the tasks </span> you want to accomplish today in order of priority. </li>
+                            <li data-section="information" data-value="li-1-2"> 2. <span> Set the timer </span> for 25 minutes. </li>
+                            <li data-section="information" data-value="li-1-3"> 3. <span> Pick a task </span> to work on. </li>
+                            <li data-section="information" data-value="li-1-4"> 4. <span> Start the timer </span> and concentrate on the task until the time ends  </li>
+                            <li data-section="information" data-value="li-1-5"> 5. <span> Take a break </span> for 5 minutes  </li>
+                            <li data-section="information" data-value="li-1-6"> 6. <span> Take a longer break </span> (15-30 minutes) after four pomodoros. </li>
+                            <li data-section="information" data-value="li-1-7"> 7. <span> Repeat the cycle </span> until you complete all the tasks. </li>
+                        </ol>
+                    </div>
+                    <div class="info info__sf">
+                        <h3 data-section="information" data-value="info-title-3"> Benefits of the Technique </h3>
+                        <div class="info__divider"></div>
+                        <ul>
+                            <li data-section="information" data-value="li-2-1">- <span> Improves focus: </span> This technique lets you break the habit of multitasking. It trains you to be able to focus on one task at a time with reasonable time intervals. </li>
+                            <li data-section="information" data-value="li-2-2">- <span> Facilitates project planning: </span> After getting used to doing pomodoros, you’ll be able to plan out tasks and projects with more precision. </li>
+                            <li data-section="information" data-value="li-2-3">- <span> Decreases mental fatigue: </span> A study found that doing prolonged tasks leads to a decrease in performance, while short breaks between tasks can help you keep the focus.</li>
+                            <li data-section="information" data-value="li-2-4">- <span> Sustains motivation: </span> Breaking down tasks and tackling them in short bursts, you’ll feel a sense of satisfaction seeing how much you can accomplish in 25 minutes. </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <aside class="aside">
+            <div class="aside__container">
+                <div class="aside__content aside__content--header">
+                    <span data-section="aside" data-value="aside-title">Settings</span>
+                    <i class="fa-solid fa-xmark close"></i>
+                </div>
+                <div class="aside__content aside__content--time">
+                    <span class="title">
+                        <i class="fa-regular fa-clock"></i><p data-section="aside" data-value="config-title-1">TIMER</p>
+                    </span>
+                    <div class="config">
+                        <p data-section="aside" data-value="time">Time</p>
+                        <div class="config__option">
+
+                            <div class="time__input">
+                                <label>Pomodoro</label>
+                                <input type="number" class="timer__minutes input" min="1" max="120" step="1" value="25" id="pomodoro">
+                            </div>
+
+                            <div class="time__input">
+                                <label data-section="aside" data-value="label-2">Short Break</label>
+                                <input type="number" class="break__minutes input" min="1" max="30" step="1" value="5" id="break">
+                            </div>
+
+                            <div class="time__input">
+                                <label data-section="aside" data-value="label-3">Long Pause</label>
+                                <input type="number" class="pause__minutes input" min="1" max="60" step="1" value="20" id="pause">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="config config__option">
+                        <p data-section="aside" data-value="interval">Long Pause Interval</p>
+                        <input type="number" class="interval input" min="1" max="8" step="1" value="4">
+                    </div>
+                    <div class="config config__option">
+                        <p data-section="aside" data-value="sessions">Pomodoro Sessions</p>
+                        <input type="number" class="sessions input" min="1" max="16" step="1" value="4">
+                    </div>
+                    <div class="config config__option">
+                        <p data-section="aside" data-value="auto-start">Automatically Start</p>
+                        <input type="checkbox" class="autostart input" id="switch" checked>
+                        <label for="switch" class="lbl-switch"></label>
+
+                    </div>
+                </div>
+
+
+                <div class="aside__content aside__content--sound">
+                    <span class="title">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <p data-section="aside" data-value="config-title-2">SOUND</p>
+                    </span>
+
+
+                    <div class="config config__option">
+                        <p data-section="aside" data-value="range">Volume</p>
+                        <div class="slider">
+                            <div class="range__value">50</div>
+                            <input type="range" class="range input" min="0" max="1" step="0.01" value="0.5">
+                        </div>
+                    </div>
+                
+
+
+                </div>
+                <div class="aside__content aside__content--language">
+                    <span class="title">
+                        <svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
+                            <path d="M480.297 997Q392 997 315.5 965T181 874.5Q123 816 91 739.051q-32-76.948-32-165.52Q59 485 91 408.5t90-133q58-56.5 134.449-89 76.448-32.5 165.02-32.5Q569 154 645 186.5t134 89q58 56.5 90.5 133.138T902 574q0 88.404-32.5 165.202T779 874.5Q721 933 644.774 965t-164.477 32ZM479 909q33-34 55.5-79.5T573 719H388q13 61 36.094 108.158T479 909Zm-81-12q-25-36-41.875-79.326Q339.25 774.349 327 719H181q36 68.806 84.5 109.403Q314 869 398 897Zm163-1q71-20 126.5-67T779 719H635.142Q622 773 604 816.5T561 896ZM162.035 663H317q-4-27-4.5-48t-.5-41q0-25 1-43.5t5-42.5H162.035Q156 512 153 530t-3 44q0 25 3 45t9.035 44Zm214.996 0H584q3-31 3.5-50t.5-39q0-20-.5-37.5t-3.531-48.5H377q-4 31-5 48.5t-1 37.5q0 20 1 39t5.031 50ZM643 663h155q4-24 7.5-44t3.5-45q0-26-3.5-44t-7.5-42H644q1 37 2 53.675 1 16.675 1 32.325 0 21-1.5 40t-2.5 49Zm-8.858-232H779q-34-66-89.5-113T560 254q25 37 43 79t31.142 98ZM388 431h186q-9-49.721-34.5-100.361Q514 280 479 245q-29 25-50.5 68.5T388 431Zm-207 0h146.816Q339 378 355 336.5t42-81.5q-75 17-129 62t-87 114Z"/>
+                        </svg>
+                        <p data-section="aside" data-value="config-title-3">LANGUAGE</p>
+                    </span>
+                    <select name="language" id="language">
+                        <option class="options" value="en">English</option>
+                        <option class="options" value="es">Español</option>
+                    </select>
+                </div>
+
+            </div>
+        </aside>
+
+        <footer>
+            <div class="footer">
+                <div class="footer__contact">
+                    <div class="footer__contact--name">
+                        <span class="footer__name--link" data-section="footer" data-value="span-footer">Made  by </span>
+                        <a href="https://justoiribarren.github.io/" target="_blank" rel="noopener noreferrer"class="footer__name--link">
+                            Justo Iribarren
+                        </a>
+                    </div>
+                    
+                    <a href="https://www.linkedin.com/in/justo-iribarren/" target="_blank" rel="noopener noreferrer"class="footer__contact--content">
+                        <span><i class="fa-brands fa-linkedin"></i></span>
+                    </a>
+                    <a href="https://github.com/justoIribarren" target="_blank" rel="noopener noreferrer"class="footer__contact--content">
+                        <span><i class="fa-brands fa-github"></i></span>
+                    </a>
+                </div>
+                <p data-section="footer" data-value="copyright">Stay Focused! is not related to the Pomodoro Technique™/Pomodoro™’s trademark holder Cirillo Company and respects its trademarks.<br>
+                Pomodoro Technique® and Pomodoro® are registered trademarks of Francesco Cirillo.
+            </div>
+        </footer>
+    </div>
+
+    <script src="./js/index.js" type="module"></script>
+    <script src="./js/timer.js" type="module"></script>
+    <script src="./js/language.js" type="module"></script>
+</body>
+
+</html>

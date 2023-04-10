@@ -1,0 +1,74 @@
+@use '../abstract/mixins';
+@import '../abstract/variables';
+
+.main__timer {
+    
+    @include mixins.flex(center, center, column);
+    // width: 100vw;
+    min-height: 100vh;
+    color: $color2;
+    .pomodoro__status{
+        @include mixins.flex(center, center, row);
+        
+        height: 7px;
+        width: 200px;
+    
+        .status{
+            margin: 0 5px;
+            background-color: rgba(247, 243, 226, .70);
+            width: 7px;
+            height: 7px;
+            border-radius: 10px;
+        }
+    }
+    
+    .timer{
+        @include mixins.flex(center, center, column);
+        width: 100%;
+        &__countdown {
+            margin: 0;
+            font-size: 11em;
+            font-weight: 700;
+            cursor: default;
+            color: inherit;
+            &::selection { opacity: 0;}
+        }
+        
+        &__buttons{
+            .fa-solid {font-size: 25px;}
+            #Capa_1 { width: 19px}            
+            button {
+                @include mixins.flex(center, center, row);
+                width: 22px;
+                height: 30px;
+            }
+            &::selection { opacity: 0;}
+        }
+    }
+
+}
+.main__active { 
+    background-color: $color4;
+    color: rgba(247, 243, 226, .70);
+    .cls-1 {fill: rgba(247, 243, 226, .70); stroke: none; }
+}
+
+@media only screen and (max-width: 560px) {
+    .main__timer{
+        .timer{
+            &__countdown {
+                font-size: 7em;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main__timer{
+        .timer{
+            &__countdown {
+                font-size: 6em;
+            }
+        }
+    }
+}
